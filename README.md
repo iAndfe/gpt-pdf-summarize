@@ -1,4 +1,5 @@
-# Simplified PDF Summarization Using GPT-4 (by GPT-4 and Andy Feng)
+# Simplified PDF Summarization Using GPT-4
+### (by GPT-4 and Andy Feng)
 
 The goal of the script above is to extract information from a PDF document and provide a summarized version of the content using OpenAI's GPT-4 model. This script does so by converting the PDF to plain text, dividing the text into manageable chunks, feeding these chunks to the GPT-4 model via OpenAI API, and gathering the summarized results. Here is an intuitive step-by-step explanation of the process.
 
