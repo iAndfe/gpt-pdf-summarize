@@ -37,6 +37,8 @@ In summary, this script automatically extracts, preprocesses, and summarizes tex
     pip install PyPDF2 requests
     ```
 
+Alternatively, on main.ipynb click `Select Kernel`, and build a new .venv (python virtual environment) and tick install requirements.txt on venv creation.
+
 2. **Setting up OpenAI API Key**: 
 
     - First, you need to get your OpenAI API Key. To do this, go to the [OpenAI platform](https://beta.openai.com/signup/), sign up and navigate to the API section. Copy your key.
@@ -53,8 +55,8 @@ In summary, this script automatically extracts, preprocesses, and summarizes tex
 
     - Create a `custom_message.txt` file in the same directory as your script. Write the custom message that you want to send to the GPT-4 model in this file.
 
-4. **Run the Script**: You can now run the steps in the notebook (main.ipynb). To do this, make sure you have python extensions installed on VSCode.
+4. **Run the Script**: You can now run the steps in the notebook `main.ipynb`. To do this, make sure you have python extensions installed on VSCode.
 
-5. **Check the Results**: If everything goes as expected, the script will create a new directory named "processed". Inside this directory, you will find a file named "summaries.json" and "summaries_formatted" containing the summaries of the chunks from your PDF file. There will also be a "summaries_formatted.txt" file, which is a neatly formatted text file containing the same summaries.
+5. **Check the Results**: If everything goes as expected, the script will create a new directory named "processed". Inside this directory, you will find a file named `summaries.json`containing the summaries of the chunks from your PDF file. There will also be a `summaries_formatted.txt` file, which is a neatly formatted text file containing the same summaries.
 
 Please note that this is a basic guide and assumes you're familiar with running Python scripts and working in a code editor like VS Code. You should also refer to the official OpenAI API and the Python package documentation for the most up-to-date information.

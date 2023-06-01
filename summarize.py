@@ -2,6 +2,8 @@ import PyPDF2
 import json
 import re
 import requests
+import json
+import os
 from secret_key import OPENAI_API_KEY
 
 def pdf_to_text(file_path):
@@ -76,3 +78,50 @@ def preprocess(text):
     text = re.sub(r'\s+', ' ', text)
 
     return text
+
+
+def generate_summaries(text_chunks, custom_message, max_api_calls=50):
+    summaries = []
+    api_calls = 0
+
+    for chunk in text_chunks:
+        if api_calls >= max_api_calls:
+            break
+
+        summary = call_openai_api(chunk, custom_message)
+
+        if summary:
+            token_count = count_tokens(summary)
+            summaries.append({
+                "original_chunk": chunk,
+                "summary": summary,
+                "token_count": token_count
+            })
+
+            api_calls += 1
+
+    return summaries
+
+
+def save_summaries_to_json(summaries, file_name='processed/summaries.json'):
+    os.makedirs("processed", exist_ok=True)
+
+    with open(file_name, "w") as f:
+        json.dump(summaries, f, indent=2)
+
+
+def format_and_save_summaries(file_name='processed/summaries.json', output_file='processed/summaries_formatted.txt'):
+    # Load the data
+    with open(file_name, 'r') as file:
+        data = json.load(file)
+
+    # Extract the summaries
+    summaries = [entry['summary'] for entry in data]
+
+    # Write the summaries to a new .txt file
+    with open(output_file, 'w') as file:
+        for summary in summaries:
+            summary_str = json.dumps(summary, indent=4)
+            summary_str = summary_str.replace('\\n', '\n')
+            file.write(summary_str)
+            file.write('\n\n')
