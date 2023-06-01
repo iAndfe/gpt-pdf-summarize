@@ -25,7 +25,7 @@ In summary, this script automatically extracts, preprocesses, and summarizes tex
 
 ## Prerequisites
 
-- **Python**: Make sure Python is installed on your system. If you haven't installed Python, you can download it from the [official Python website](https://www.python.org/downloads/). As of my training cut-off in September 2021, Python 3.9.x is the latest version. Make sure to select the option "Add Python to PATH" during the installation.
+- **Python**: Make sure Python is installed on your system. If you haven't installed Python, you can download it from the [official Python website](https://www.python.org/downloads/).
 
 - **Visual Studio Code (VS Code)**: This is a free and open-source editor that supports Python and many other programming languages. You can download it from the [official VS Code website](https://code.visualstudio.com/download). 
 
