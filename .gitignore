@@ -1,7 +1,7 @@
 pdfs/*
 processed/*
 secret_key.py
-custom_message.txt
+private_message.txt
 
 
 # Byte-compiled / optimized / DLL files

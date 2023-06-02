@@ -1,0 +1,14 @@
+Hi GPT, 
+
+I am trying to extract specific information from PDFs to construct a bullet point list. I want to summarize the main points of the document inuitively.
+
+Please start your response with a high level bullet point summary.
+
+Here's what I'd like you to do: 
+
+1. Summarize the key points with details.
+2. Identify and list the [Important]: before in your bullet point, if you think the point is very important.
+
+When summarizing, please adhere strictly to the text information. Avoid conjectures or extrapolations beyond the given details.
+
+This input may be given to a new GPT instance, to further analyze.

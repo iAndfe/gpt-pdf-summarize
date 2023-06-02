@@ -24,7 +24,7 @@ def call_openai_api(chunk, custom_message, gpt_version, OPENAI_API_KEY):
     data = {
         "model": gpt_version,
         "messages": [{"role": "user", "content": f"{custom_message}{chunk}"}],
-        "max_tokens" : 4096,
+        "max_tokens" : 1024,
     }
     response = requests.post(
         "https://api.openai.com/v1/chat/completions",
