@@ -37,7 +37,7 @@ In summary, this script automatically extracts, preprocesses, and summarizes tex
     pip install PyPDF2 requests
     ```
 
-    - Alternatively, on main.ipynb click `Select Kernel`, and build a new .venv (python virtual environment) and tick install requirements.txt on venv creation.
+    - Alternatively, on main.ipynb click `Select Kernel`, and build a new `.venv` (python virtual environment) and tick install requirements.txt on venv creation.
 
 2. **Setting up OpenAI API Key**: 
 
