@@ -4,7 +4,6 @@ import re
 import requests
 import json
 import os
-from secret_key import OPENAI_API_KEY
 
 def pdf_to_text(file_path):
     with open(file_path, 'rb') as file:
@@ -17,15 +16,15 @@ def pdf_to_text(file_path):
     return text
 
 
-def call_openai_api(chunk, custom_message):
+def call_openai_api(chunk, custom_message, gpt_version, OPENAI_API_KEY):
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {OPENAI_API_KEY}",
     }
     data = {
-        "model": "gpt-4",
+        "model": gpt_version,
         "messages": [{"role": "user", "content": f"{custom_message}{chunk}"}],
-        "max_tokens" : 1024,
+        "max_tokens" : 4096,
     }
     response = requests.post(
         "https://api.openai.com/v1/chat/completions",
@@ -80,7 +79,7 @@ def preprocess(text):
     return text
 
 
-def generate_summaries(text_chunks, custom_message, max_api_calls=50):
+def generate_summaries(text_chunks, custom_message, max_api_calls, gpt_version, OPENAI_API_KEY):
     summaries = []
     api_calls = 0
 
@@ -88,7 +87,7 @@ def generate_summaries(text_chunks, custom_message, max_api_calls=50):
         if api_calls >= max_api_calls:
             break
 
-        summary = call_openai_api(chunk, custom_message)
+        summary = call_openai_api(chunk, custom_message, gpt_version, OPENAI_API_KEY)
 
         if summary:
             token_count = count_tokens(summary)
