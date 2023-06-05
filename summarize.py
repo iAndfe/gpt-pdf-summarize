@@ -1,3 +1,4 @@
+from datetime import datetime
 import PyPDF2
 import json
 import re
@@ -102,25 +103,26 @@ def generate_summaries(text_chunks, custom_message, max_api_calls, gpt_version, 
     return summaries
 
 
-def save_summaries_to_json(summaries, file_name='processed/summaries.json'):
-    os.makedirs("processed", exist_ok=True)
+def save_summaries_to_json(summaries, directory):
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    file_name = f'summaries_{timestamp}.json'
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    with open(os.path.join(directory, file_name), 'w') as f:
+        json.dump(summaries, f)
+    return summaries  # return summaries after saving to file
 
-    with open(file_name, "w") as f:
-        json.dump(summaries, f, indent=2)
 
-
-def format_and_save_summaries(file_name='processed/summaries.json', output_file='processed/summaries_formatted.txt'):
-    # Load the data
-    with open(file_name, 'r') as file:
-        data = json.load(file)
-
-    # Extract the summaries
-    summaries = [entry['summary'] for entry in data]
-
-    # Write the summaries to a new .txt file
-    with open(output_file, 'w') as file:
-        for summary in summaries:
-            summary_str = json.dumps(summary, indent=4)
-            summary_str = summary_str.replace('\\n', '\n')
-            file.write(summary_str)
-            file.write('\n\n')
+def format_and_save_summaries(summaries, output_directory):
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_file = f'summaries_formatted_{timestamp}.txt'
+    if not os.path.exists(output_directory):
+        os.makedirs(output_directory)
+    # Extract only the 'summary' field from each entry in the summaries list
+    summaries_only = [entry['summary'] for entry in summaries]
+    formatted_summaries = [f'Summary {i+1}:<br>{summary}<br><br>' for i, summary in enumerate(summaries_only)]
+    formatted_summaries_txt = [f'Summary {i+1}:\n{summary}\n\n' for i, summary in enumerate(summaries_only)]
+    with open(os.path.join(output_directory, output_file), 'w', encoding='utf-8') as file:
+        for formatted_summary in formatted_summaries_txt:
+            file.write(formatted_summary)
+    return formatted_summaries

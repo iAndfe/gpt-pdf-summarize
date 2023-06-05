@@ -1,8 +1,7 @@
 pdfs/*
 processed/*
 secret_key.py
-private_message.txt
-
+flagged/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
