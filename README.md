@@ -25,6 +25,8 @@ Once the application is launched, you'll be presented with an easy-to-use interf
 
 That's all there is to it! Use this simple and efficient tool to quickly understand the main points of a PDF document without having to read the entire text. Enjoy using the Simplified PDF Summarization with GPT-4!
 
+**Note: Depending on size of PDF, it may take 5-30 minutes**
+
 **App preview**
 
 ![Screenshot of the application](screenshot.png)
