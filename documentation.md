@@ -20,11 +20,3 @@ The goal of this project is to extract information from a PDF document and provi
 8. **Formatting and Saving Summaries in a Text File**: The saved JSON file is opened using `call_openai_api`, and the summaries are extracted and saved in a neatly formatted text file. The output here is designed to be human-readable.
 
 In summary, this script automatically extracts, preprocesses, and summarizes text from PDF files using GPT-4, making it an invaluable tool for quickly understanding the main points of a large document.
-
-# Installation & Usage Guide
-
-## Prerequisites
-
-- **Python**: Make sure Python is installed on your system. If you haven't installed Python, you can download it from the [official Python website](https://www.python.org/downloads/).
-
-- **Visual Studio Code (VS Code)**: This is a free and open-source editor that supports Python and many other programming languages. You can download it from the [official VS Code website](https://code.visualstudio.com/download). 
