@@ -24,3 +24,7 @@ Once the application is launched, you'll be presented with an easy-to-use interf
 3. Press "Summarize PDF" button, and the application will generate a summarized version of the document. The summary will be displayed on the screen and saved as a text file in the `output` folder.
 
 That's all there is to it! Use this simple and efficient tool to quickly understand the main points of a PDF document without having to read the entire text. Enjoy using the Simplified PDF Summarization with GPT-4!
+
+**App preview**
+
+![Screenshot of the application](screenshot.png)
