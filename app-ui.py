@@ -1,7 +1,10 @@
 import gradio as gr
 from datetime import datetime
 import summarize
+import warnings
 
+# Ignore deprecation warnings
+warnings.filterwarnings('ignore', category=UserWarning)
 
 custom_message = summarize.read_custom_message('custom_message.txt')
 

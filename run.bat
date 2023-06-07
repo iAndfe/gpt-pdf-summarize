@@ -16,7 +16,10 @@ REM Install requirements if they are not yet installed
 (requirements_install_check.py >nul 2>&1) || pip install -r requirements.txt
 
 REM Run the app
-python app-ui.py
+start /b python app-ui.py
+
+REM Open the app in a web browser
+python -m webbrowser "http://localhost:7860"
 
 REM Deactivate the environment
 deactivate
