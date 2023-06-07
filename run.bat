@@ -13,10 +13,13 @@ REM Activate the virtual environment
 call .venv\Scripts\activate
 
 REM Install requirements if they are not yet installed
-(requirements_install_check.py >nul 2>&1) || pip install -r requirements.txt
+python -m requirements_install_check >nul 2>&1 || pip install -r requirements.txt
 
 REM Run the app
 start /b python app-ui.py
+
+REM Add a delay to allow the server to start
+timeout /t 2
 
 REM Open the app in a web browser
 python -m webbrowser "http://localhost:7860"
